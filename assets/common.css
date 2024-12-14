@@ -1,0 +1,23 @@
+:root{
+    /* fonts */
+    --font-1: "JetBrains Mono";
+    --font-2: "Bodoni Moda";
+
+    /* font sizes */
+    --font-base: 16px;
+    --size-1: 18px;
+    --size-2: 24px;
+    --size-3: 32px;
+    --size-4: 48px;
+    --size-5: 64px;
+    --size-6: 80px;
+    --size-7: 96px;
+    --size-8: 112px;
+
+    /* colors */
+    --light-beige: #fdf7e7; 
+    --dark-beige: #c3bba5;
+    --black: #120f06;
+    --light-red: #ff283e;
+    --dark-red: #a50010;
+}
