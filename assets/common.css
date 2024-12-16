@@ -23,9 +23,23 @@
 }
 
     /* Mobile Styles */
+    *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
     body{
         background-color: var(--light-beige);
         margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header{
+        background-color: var(--black);
+        padding-bottom: 16px;
     }
 
     h1{
@@ -59,11 +73,6 @@
     .selected{
         color: var(--red);
         text-decoration: underline 1px;
-    }
-
-    header{
-        background-color: var(--black);
-        padding-bottom: 16px;
     }
 
     h2{
@@ -118,7 +127,12 @@
         padding-bottom: 36px;
     }
 
-    article {
+    main{
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    p{
         font-family: var(--font-2);
         font-size: var(--size-1);
         font-weight: 400;
@@ -127,18 +141,36 @@
         text-indent: 18px;
         text-align: left;
         text-wrap: pretty;
-        max-width: 65ch;
         display: flex;
         flex-direction: column;
+        position: relative;
         gap: 16px;
-    }
-
-    p{
         margin: 16px;
     }
 
     p:last-of-type{
         margin-bottom: 40px;
+    }
+
+    .background{
+        position: relative;
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .background::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        background-image: linear-gradient(var(--light-red), var(--dark-beige));
+        border-radius: 0px 0px 50px 0px;
+        z-index: -1;
     }
 
     blockquote{
@@ -147,14 +179,18 @@
         font-weight: 400;
         line-height: calc(var(--size-3)*1.5);
         color: var(--light-beige);
-        background-image: linear-gradient(var(--light-red), var(--dark-beige));
-        border-radius: 0px 0px 50px 0px;
         text-indent: 0;
         text-align: left;
         text-wrap: pretty;
+        position: relative;
         padding: 32px;
+        max-width: 65ch;
         margin-top: 24px;
         margin-bottom: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        z-index: 1;
     }
 
     section{
@@ -168,9 +204,9 @@
         text-indent: 18px;
         text-align: left;
         text-wrap: pretty;
+        width: 100%;
         max-width: 65ch;
         display: flex;
-        flex-direction: column;
         padding-bottom: 32px;
     }
 
@@ -188,6 +224,10 @@
     /* Media Queries */
 
     @media (min-width: 500px){
+
+        h1{
+            text-align: center;
+        }
 
         nav{
             font-size: calc(var(--size-2)*1.2);
@@ -210,4 +250,68 @@
 
     @media(min-width: 678px){
 
+        p{
+            max-width: 65ch;
+            margin: 16px;
+            margin-left: 40px;
+            align-items: center;
+        }
+
+        .background::before{
+            width: 100vw;
+            left: 0;
+            top: 0;
+            height:100%;
+        }
+
+        blockquote{
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        section{
+            margin: 0;
+            max-width: 65ch;
+            align-items: center;
+        }
     }
+
+    @media(min-width: 750px){
+
+        p{
+            max-width: 75ch;
+            margin: 16px;
+            margin-left: 40px;
+            align-items: center;
+        }
+    }
+
+    @media(min-width: 850px){
+
+        hgroup{
+            max-width: 75ch;
+            margin: 16px 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left; 
+        }
+
+        p{
+                max-width: 75ch; 
+                margin: 16px 0;
+                padding-bottom: 24px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left; 
+            }
+
+        section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px;
+            width: 100%; 
+            margin: 0 auto;
+            max-width: 75ch; 
+            }
+        }
